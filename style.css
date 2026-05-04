@@ -1,0 +1,304 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.all {
+    background-image: url("./slide1-1.jpg.jpeg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    /* background: rgba(255, 255, 255, 0.9); Semi-transparent white */
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    height: 60px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    color: #ff6f00; /* Orange on hover */
+}
+
+/* Hero Image (centered under navbar) */
+.hero.granpas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 80px; /* Space for fixed navbar */
+}
+
+.hero-image {
+    width: 100%;
+     height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Illustration Section */
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.illustration {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    /* background: #f9f9f9; */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.illustration:hover {
+    transform: translateY(-10px);
+}
+
+.sorce {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;  
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px;
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.illustration:hover .sorce {
+    filter: brightness(0.8) hue-rotate(200deg) saturate(2); /* Turns orange on hover */
+    transform: scale(1.1);
+}
+
+.illustration p {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Expert Section */
+.expert {
+    text-align: center;
+    padding: 100px 20px;
+    /* background: #f8f8f8; */
+}
+
+.expert img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
+}
+
+.expert h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.expert p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.my_expertise{
+    margin: 30px;
+    /* margin-top: 70px; */
+
+}
+.expert_in{
+    
+    text-align: center;
+}
+.exper_img{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.expertise_image{
+    flex: 1;
+    display: flex;
+    width: 30vw;
+    height: 40vh;
+    justify-content: space-around;
+}
+.Caring_pack{
+    flex: 1;
+    display: flex;
+    margin: 120px;
+    gap: 20px;
+
+}
+.Caring_header{
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+}
+.Caring_order{
+    place-content: center;
+    text-align: center;
+    width: 30vw;
+    height: 60vh;
+    gap: 100px;
+    background-color: rgb(247, 245, 245);
+    border-radius: 14px;
+}
+.Caring_order_sec{
+    place-content: center;
+    text-align: center;
+    width: 30vw;
+    height: 70vh;
+    margin-left: -50px;
+    background-color: rgba(223, 159, 107, 0.877);
+    border-radius: 14px;
+}
+/* OUR CARE SECTION */
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    /* padding: 80px 20px; */
+    background: #fff;
+}
+
+.illustration {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    /* background: #f9f9f9; */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.illustration:hover {
+    transform: translateY(-10px);
+}
+
+.ico {
+    width: 20vw;
+    height: 45vh;
+    /* border-radius: 50%;   */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px;
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.illustration:hover .sorce {
+    filter: brightness(0.8) hue-rotate(200deg) saturate(2); /* Turns orange on hover */
+    transform: scale(1.1);
+}
+
+.illustration p {
+    font-size: 16px;
+    color: #444;
+}
+
+/* COMPANY */
+.company{
+    background-image: url("./tst1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 120vh;
+    width: 100vw;
+    display: flex;
+}
+.comp{
+    margin-top: 300px;
+    gap: 50px;
+}
+
+/* WHAT OUR CLIENT SAYS ABOUT US */
+
+.client_header{
+    text-align: center;
+    gap: 100px;
+    margin: 50px;
+}
+.client_review_header{
+    background-color: #ffffff;
+    width: 50vw;
+    height: 40vh;
+    border-radius: 20px;
+    margin: 100px;
+    margin-top: 50px;
+}
+.client_review{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+   
+ }
+/* .what_our_client{
+    display: flex;
+} */
+
+.Expert_nurse{
+    background-color: #ff6f00;
+    flex: 1;
+    gap: 80px;
+    display: flex;
+    flex-direction: row;
+    opacity: 40px;
+    overflow-x: auto;
+
+}
+.Expert_header{
+    text-align: center;
+    place-content: center;
+}
+
+
+/* MEDIA QUARY */
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .navbar { padding: 20px 30px; }
+    .nav-links a { margin: 0 10px; font-size: 16px; }
+    .hero-image { width: 90%; }
+}
+
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
+}
