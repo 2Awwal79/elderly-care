@@ -7,28 +7,27 @@
     <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <div class="all">
-        <!-- Navbar -->
-        <nav class="navbar">
-            <img src="asset/logo.png" alt="Logo" class="logo">
-            <div class="nav-links">
-                <a href="./index.html">Home</a>
-                <a href="./store.html">Store</a>
-                <a href="./about.html">About</a>
-                <a href="./service.html">Service</a>
-            </div>
-        </nav>
-    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="asset/logo.png" alt="Logo" class="logo">
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./store.html">Store</a>
+            <a href="./about.html">About</a>
+            <a href="./service.html">Service</a>
+        </div>
+    </nav>
 
     <!-- About Section -->
-    <section class="about_sec fade-in">
+    <section class="about_sec">
         <div class="about_content">
             <h2>Who We Are?</h2>
             <p>
-                Elderly care emphasizes the social and personal requirements of senior citizens who need some assistance with daily activities and health care, but who desire to age with dignity. 
-                It is an important distinction, in that the design of housing, services, activities.
+                Elderly care emphasizes the social and personal requirements of senior citizens who need some assistance with daily activities and health care, but who desire to age with dignity.
+                It is an important distinction, in that the design of housing, services, and activities matters deeply.
             </p>
-            
             <ul class="services-list">
                 <li>Residential Caring</li>
                 <li>Health Care</li>
@@ -40,11 +39,9 @@
             </ul>
         </div>
 
-        <!-- Image + Badge Container -->
+        <!-- Image + Badge -->
         <div class="about_image_wrapper">
             <img src="asset/p10.jpg" alt="Elderly Care Team" class="about_img">
-            
-            <!-- 47+ Years Badge - Now beside the image -->
             <div class="years_badge">
                 <span class="years_number">47</span><span class="plus">+</span>
                 <p>Years of Experience</p>
@@ -52,51 +49,67 @@
         </div>
     </section>
 
-  <!-- Expert Section -->
+    <!-- Expert Section -->
     <section class="expert">
-        <img src="./icon11.png" alt="Expert Icon">
+        <img src="asset/icon11.png" alt="Expert Icon">
         <h1>We are expert elderly care in this town</h1>
         <p>Our mission is to provide the best service to your family, care and match for you and your family.</p>
-        <button style="width: 60vh; height: 10vh;">Call Us +1 (800) 33 445</button>
-
+        <button class="call-btn">Call Us +1 (800) 33 445</button>
     </section>
+
+    <!-- Why Choose Us -->
     <div class="choose_for_us">
         <div class="choose_img">
-            <img src="./p9.jpg" alt="">
-
+            <img src="asset/p9.jpg" alt="Why Choose Us">
         </div>
-        <section>
+        <div class="choose_text">
             <h1>Why Choose Us?</h1>
             <p>It usually includes packing up all belongings, transferring to the new home, and unpacking as well as administrative or bureaucratic tasks.</p>
-        </section>
-    </div>
-    <div class="exper_doctors">
-        <section class="doctor_section">
-            <h1>Experienced doctors in every specialty</h1>
-            <p>Xtra Clinic doctors cover virtually every specialty and subspecialty.</p>
-        </section>
-    </div>
-   <div class="album_container">
-    <div class="album_track">
-        <div class="album_item"><img src="./p7.jpg" alt=""></div>
-        <div class="album_item"><img src="./p8.jpg" alt=""></div>
-        <div class="album_item"><img src="./p10.jpg" alt=""></div>
-        <div class="album_item"><img src="./p5.jpg" alt=""></div>
-    </div>
-</div>
-        <section class="we_o_expert">
-            <h1>We will do, what we are expert in</h1>
-            <p>Everything you need to support you in family caregiver,We can help you today.</p>
-        </section>
-        <!-- FOOTER PAGE -->
- <!-- NEED AN EXPERT NURSE -->
-      <div class="Expert_nurse">
-        <img src="./p8.jpg" alt="" style="width: 20vw; height: 30vh;">
-        <div class="Expert_header">
-        <h2>Need an expert nurse?</h2>
-        <p>We provide exceptional, compassion care to your darlings.</p>
-        <button style="width: 10vw; height: 5vh; border-radius: 7px; border: none; margin-left: 350px; gap: 40px; margin: 20px;">Contact us</button>
         </div>
-      </div>
+    </div>
+
+    <!-- Experienced Doctors -->
+    <div class="doctor_section">
+        <h1>Experienced doctors in every specialty</h1>
+        <p>Xtra Clinic doctors cover virtually every specialty and subspecialty.</p>
+    </div>
+
+    <!-- Scrolling Album -->
+    <div class="album_container">
+        <div class="album_track">
+            <div class="album_item"><img src="asset/p7.jpg" alt="Care 1"></div>
+            <div class="album_item"><img src="asset/p8.jpg" alt="Care 2"></div>
+            <div class="album_item"><img src="asset/p10.jpg" alt="Care 3"></div>
+            <div class="album_item"><img src="asset/p5.jpg" alt="Care 4"></div>
+            <!-- Duplicated for seamless loop -->
+            <div class="album_item"><img src="asset/p7.jpg" alt="Care 1"></div>
+            <div class="album_item"><img src="asset/p8.jpg" alt="Care 2"></div>
+            <div class="album_item"><img src="asset/p10.jpg" alt="Care 3"></div>
+            <div class="album_item"><img src="asset/p5.jpg" alt="Care 4"></div>
+        </div>
+    </div>
+
+    <!-- We Are Expert -->
+    <section class="we_o_expert">
+        <h1>We will do, what we are expert in</h1>
+        <p>Everything you need to support you in family caregiver. We can help you today.</p>
+    </section>
+
+    <!-- Expert Nurse CTA -->
+    <div class="expert_nurse">
+        <img src="asset/p8.jpg" alt="Expert Nurse">
+        <div class="expert_header">
+            <h2>Need an expert nurse?</h2>
+            <p>We provide exceptional, compassionate care to your loved ones.</p>
+            <button>Contact Us</button>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    </script>
+
 </body>
 </html>

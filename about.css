@@ -1,4 +1,6 @@
-/* Reset & Base */
+/* =====================
+   Reset & Base
+===================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,79 +8,102 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Georgia, serif;
     background: linear-gradient(to bottom, #f0f8ff, #fffaf0);
     min-height: 100vh;
     color: #333;
 }
 
-/* Navbar */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =====================
+   Navbar
+===================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 50px;
+    background: rgba(255, 255, 255, 0.97);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
+    flex-wrap: wrap;
 }
 
-.logo { height: 60px; }
+.logo {
+    height: 55px;
+    width: auto;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #333;
+}
 
 .nav-links a {
     text-decoration: none;
     color: #333;
-    margin: 0 20px;
+    margin: 0 18px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
-.nav-links a:hover { color: #ff6f00; }
+.nav-links a:hover {
+    color: #ff6f00;
+}
 
-/* About Section Layout */
+/* =====================
+   About Section
+===================== */
 .about_sec {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 150px 80px 100px;
-    gap: 100px;
+    padding: 80px 80px 100px;
+    gap: 60px;
     max-width: 1400px;
     margin: 0 auto;
     flex-wrap: wrap;
 }
 
 .about_content {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 300px;
 }
 
 .about_content h2 {
-    font-size: 48px;
+    font-size: clamp(28px, 4vw, 48px);
     color: #ff6f00;
     margin-bottom: 20px;
 }
 
 .about_content p {
-    font-size: 20px;
+    font-size: clamp(15px, 1.8vw, 20px);
     line-height: 1.8;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     color: #555;
 }
 
 .services-list {
     list-style: none;
     columns: 2;
-    column-gap: 40px;
+    column-gap: 30px;
 }
 
 .services-list li {
-    font-size: 18px;
-    margin: 12px 0;
-    padding-left: 25px;
+    font-size: clamp(14px, 1.5vw, 18px);
+    margin: 10px 0;
+    padding-left: 24px;
     position: relative;
 }
 
@@ -90,240 +115,398 @@ body {
     font-weight: bold;
 }
 
-/* Image Wrapper - Holds image + badge */
+/* =====================
+   Image + Badge
+===================== */
 .about_image_wrapper {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 300px;
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    padding-bottom: 60px;
 }
 
 .about_img {
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    display: block;
 }
 
-/* 47+ Years Badge - Now beside (bottom-right) the image */
 .years_badge {
     position: absolute;
-    bottom: 30px;
-    right: -80px; /* Places it beside the image */
+    bottom: 0;
+    right: 0;
     background: linear-gradient(135deg, #ff6f00, #ff9a3c);
     color: white;
-    width: 260px;
-    height: 260px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 20px 50px rgba(255, 111, 0, 0.4);
-    border: 8px solid white;
-    margin-bottom: -100px;
-    margin-right: 500px;
-    animation: 
-        float 6s ease-in-out infinite,
-        heartbeat 3s ease-in-out infinite,
-        shine 4s linear infinite;
-    /* z-index: 10; */
+    border: 6px solid white;
+    animation: float 6s ease-in-out infinite, shine 4s linear infinite;
+    text-align: center;
 }
 
 .years_number {
-    font-size: 86px;
+    font-size: clamp(36px, 5vw, 60px);
     font-weight: bold;
     line-height: 1;
 }
 
 .plus {
-    font-size: 56px;
+    font-size: clamp(24px, 3vw, 38px);
     font-weight: bold;
-    margin-bottom: 8px;
 }
 
 .years_badge p {
-    font-size: 22px;
+    font-size: clamp(11px, 1.2vw, 14px);
     font-weight: bold;
-    margin: 0;
+    margin-top: 4px;
 }
-/* Expert Section */
+
+.about_image_wrapper:hover .years_badge {
+    animation: float 4s ease-in-out infinite, heartbeat 1.5s ease-in-out infinite;
+}
+
+/* =====================
+   Expert Section
+===================== */
 .expert {
     text-align: center;
-    padding: 100px 20px;
-    /* background: #f8f8f8; */
+    padding: 80px 30px;
+    background: #fafafa;
 }
 
 .expert img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 30px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto 24px;
 }
 
 .expert h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: clamp(20px, 3.5vw, 34px);
+    margin-bottom: 16px;
 }
 
 .expert p {
-    font-size: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: clamp(15px, 1.8vw, 20px);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #555;
 }
-.choose_for_us{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
- }
-.choose_img img{
-    margin: 50px ;
-    margin-top: -29px;
-    width: 50vw;
-    height: 500px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
- }
- .doctor_section{
-    text-align: center;
-    padding: 80px 20px;
- }
 
- /* Container hides the images that go off-screen */
+.call-btn {
+    padding: 16px 40px;
+    font-size: clamp(15px, 1.8vw, 18px);
+    background: #ff6f00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: auto;
+    max-width: 100%;
+}
+
+.call-btn:hover {
+    background: #e05e00;
+    transform: translateY(-2px);
+}
+
+/* =====================
+   Why Choose Us
+===================== */
+.choose_for_us {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 60px;
+}
+
+.choose_img {
+    flex: 1 1 280px;
+}
+
+.choose_img img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.choose_text {
+    flex: 1 1 260px;
+}
+
+.choose_text h1 {
+    font-size: clamp(22px, 3.5vw, 36px);
+    margin-bottom: 16px;
+    color: #222;
+}
+
+.choose_text p {
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: #555;
+    line-height: 1.7;
+}
+
+/* =====================
+   Doctor Section
+===================== */
+.doctor_section {
+    text-align: center;
+    padding: 70px 30px;
+    background: #fafafa;
+}
+
+.doctor_section h1 {
+    font-size: clamp(20px, 3.5vw, 34px);
+    margin-bottom: 12px;
+}
+
+.doctor_section p {
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: #666;
+}
+
+/* =====================
+   Scrolling Album
+===================== */
 .album_container {
     overflow: hidden;
     padding: 40px 0;
-    background: #f4f4f4; /* Optional background */
+    background: #f4f4f4;
     width: 100%;
 }
 
-/* The track that actually moves */
 .album_track {
     display: flex;
-    width: calc(250px * 8); /* (Image width * total number of images) */
+    width: calc(250px * 8);
     animation: scroll 20s linear infinite;
 }
 
-/* Individual image styling */
+.album_container:hover .album_track {
+    animation-play-state: paused;
+}
+
 .album_item {
-    width: 250px; /* Adjust based on your preference */
-    height: 300px; /* Adjust based on your preference */
-    padding: 0 15px;
+    width: 250px;
+    height: 280px;
+    padding: 0 12px;
     flex-shrink: 0;
 }
 
 .album_item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Keeps images from looking stretched */
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
-.we_o_expert{
+
+/* =====================
+   We Are Expert
+===================== */
+.we_o_expert {
     text-align: center;
-    padding: 80px 20px;
+    padding: 70px 30px;
 }
-.Expert_nurse{
-    background-color: #ff6f00;
-    flex: 1;
-    gap: 80px;
+
+.we_o_expert h1 {
+    font-size: clamp(20px, 3.5vw, 32px);
+    margin-bottom: 12px;
+}
+
+.we_o_expert p {
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: #666;
+}
+
+/* =====================
+   Expert Nurse CTA
+===================== */
+.expert_nurse {
     display: flex;
-    flex-direction: row;
-    opacity: 40px;
-    overflow-x: auto;
-
-}
-.Expert_header{
-    text-align: center;
-    place-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    background-color: #ff6f00;
+    padding: 50px 60px;
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-250px * 4)); /* Move by exactly 4 images, then reset */
-    }
+.expert_nurse img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
 }
 
-/* Optional: Pause animation on hover */
-.album_container:hover .album_track {
-    animation-play-state: paused;
+.expert_header {
+    flex: 1 1 200px;
+    color: #fff;
 }
-/* Animations (same crazy ones) */
+
+.expert_header h2 {
+    font-size: clamp(22px, 3.5vw, 34px);
+    margin-bottom: 12px;
+}
+
+.expert_header p {
+    font-size: clamp(14px, 1.6vw, 17px);
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.expert_header button {
+    padding: 12px 36px;
+    background: #fff;
+    color: #ff6f00;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.expert_header button:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* =====================
+   Animations
+===================== */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50%       { transform: translateY(-14px); }
 }
 
 @keyframes heartbeat {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
+    50%       { transform: scale(1.06); }
 }
 
 @keyframes shine {
-    0% { box-shadow: 0 20px 50px rgba(255, 111, 0, 0.4); }
-    50% { box-shadow: 0 20px 70px rgba(255, 111, 0, 0.6); }
-    100% { box-shadow: 0 20px 50px rgba(255, 111, 0, 0.4); }
+    0%        { box-shadow: 0 20px 50px rgba(255, 111, 0, 0.4); }
+    50%       { box-shadow: 0 20px 70px rgba(255, 111, 0, 0.65); }
+    100%      { box-shadow: 0 20px 50px rgba(255, 111, 0, 0.4); }
 }
 
-@keyframes wobble {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(8deg); }
-    50% { transform: rotate(-6deg); }
-    75% { transform: rotate(4deg); }
-    100% { transform: rotate(0deg); }
+@keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 4)); }
 }
 
-/* Hover effect */
-.about_image_wrapper:hover .years_badge {
-    animation: 
-        float 4s ease-in-out infinite,
-        heartbeat 1.5s ease-in-out infinite,
-        wobble 0.8s ease-in-out;
-    transform: scale(1.1);
-}
-
+/* =====================
+   Responsive — Tablet
+===================== */
 @media (max-width: 1024px) {
+    .navbar { padding: 16px 30px; }
+    .about_sec { padding: 60px 40px 80px; gap: 40px; }
+    .choose_for_us { padding: 50px 30px; }
+    .expert_nurse { padding: 40px 30px; }
+}
+
+/* =====================
+   Responsive — Mobile
+===================== */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar { padding: 14px 20px; }
+    .menu-toggle { display: block; }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 0;
+        background: #fff;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { margin: 0; font-size: 16px; }
+
+    /* About */
     .about_sec {
         flex-direction: column;
+        padding: 50px 24px 70px;
         text-align: center;
-        padding: 120px 40px 80px;
-        gap: 60px;
+        gap: 40px;
     }
 
+    .services-list { columns: 1; text-align: left; }
+
     .about_image_wrapper {
-        align-items: center;
+        width: 100%;
+        padding-bottom: 80px;
     }
 
     .years_badge {
-        position: static; 
-        margin-top: 40px;
-        right: auto;
-        bottom: auto;
+        width: 140px;
+        height: 140px;
+        right: 10px;
+        bottom: 0;
     }
 
-    .services-list {
-        columns: 1;
+    /* Choose Us */
+    .choose_for_us {
+        flex-direction: column;
+        padding: 40px 24px;
+        text-align: center;
+    }
+
+    /* Expert Nurse */
+    .expert_nurse {
+        flex-direction: column;
+        padding: 40px 24px;
+        align-items: flex-start;
+    }
+
+    .expert_nurse img {
+        width: 100%;
+        height: 220px;
+    }
+
+    /* Album — smaller items on mobile */
+    .album_item {
+        width: 180px;
+        height: 220px;
+    }
+
+    .album_track { width: calc(180px * 8); }
+
+    @keyframes scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(calc(-180px * 4)); }
     }
 }
-.we_o_expert{
-    text-align: center;
-    padding: 80px 20px;
-}
-.Expert_nurse{
-    background-color: #ff6f00;
-    flex: 1;
-    gap: 80px;
-    display: flex;
-    flex-direction: row;
-    opacity: 40px;
-    overflow-x: auto;
 
-}
-.Expert_header{
-    text-align: center;
-    place-content: center;
+/* =====================
+   Responsive — Small phones
+===================== */
+@media (max-width: 480px) {
+    .about_sec { padding: 40px 16px 60px; }
+    .expert { padding: 50px 16px; }
+    .choose_for_us { padding: 30px 16px; }
+    .doctor_section { padding: 50px 16px; }
+    .we_o_expert { padding: 50px 16px; }
+    .expert_nurse { padding: 30px 16px; }
+
+    .album_item {
+        width: 150px;
+        height: 190px;
+    }
+
+    .album_track { width: calc(150px * 8); }
 }

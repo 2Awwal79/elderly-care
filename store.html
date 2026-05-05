@@ -4,63 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elderly Care Shop</title>
-    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="./store.css">
 </head>
-<body>
-    <div class="all">
-        <!-- Navbar -->
-        <nav class="navbar">
-            <img src="asset/logo.png" alt="Logo" class="logo">
-           <div class="nav-links">
-                <a href="./index.html">Home</a>
-                <a href="./store.html">Store</a>
-                <a href="./about.html">About</a>
-                <a href="./service.html">Service</a>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="asset/logo.png" alt="Logo" class="logo">
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./store.html">Store</a>
+            <a href="./about.html">About</a>
+            <a href="./service.html">Service</a>
+        </div>
+    </nav>
+
+    <!-- Shop Section -->
+    <section class="shoping">
+        <h1 class="shop-title">Shop for Our Elderly Loved Ones</h1>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.2s;">
+                <div class="product-image">
+                    <img src="asset/cane_for_working.jpg" alt="Walking Cane">
+                </div>
+                <p class="product-name">Premium Walking Cane</p>
+                <p class="product-price">$49.99</p>
             </div>
+
+            <!-- Product 2 -->
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.4s;">
+                <div class="product-image">
+                    <img src="asset/chess shop.jpg" alt="Chess Set">
+                </div>
+                <p class="product-name">Classic Chess Set</p>
+                <p class="product-price">$34.99</p>
             </div>
-        </nav>
 
-        <!-- Shop Section -->
-        <section class="shoping">
-            <h1 class="shop-title">Shop for Our Elderly Loved Ones</h1>
-
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card animate-bounce-in" style="animation-delay: 0.2s;">
-                    <div class="product-image">
-                        <img src="asset/cane_for_working.jpg" alt="Walking Cane">
-                    </div>
-                    <p class="product-name">Premium Walking Cane</p>
-                    <p class="product-price">$49.99</p>
+            <!-- Product 3 -->
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.6s;">
+                <div class="product-image">
+                    <img src="asset/Green plant.jpg" alt="Green Plant">
                 </div>
-
-                <!-- Product 2 -->
-                <div class="product-card animate-bounce-in" style="animation-delay: 0.4s;">
-                    <div class="product-image">
-                        <img src="asset/chess shop.jpg" alt="Chess Set">
-                    </div>
-                    <p class="product-name">Classic Chess Set</p>
-                    <p class="product-price">$34.99</p>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card animate-bounce-in" style="animation-delay: 0.6s;">
-                    <div class="product-image">
-                        <img src="asset/Green plant.jpg" alt="Green Plant">
-                    </div>
-                    <p class="product-name">Air-Purifying Plant</p>
-                    <p class="product-price">$24.99</p>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card animate-bounce-in" style="animation-delay: 0.8s;">
-                    <div class="product-image">
-                        <img src="asset/House_plant.jpg" alt="House Plant">
-                    </div>
-                    <p class="product-name">Cozy House Plant</p>
-                    <p class="product-price">$29.99</p>
-                </div>
+                <p class="product-name">Air-Purifying Plant</p>
+                <p class="product-price">$24.99</p>
             </div>
+
+            <!-- Product 4 -->
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.8s;">
+                <div class="product-image">
+                    <img src="asset/House_plant.jpg" alt="House Plant">
+                </div>
+                <p class="product-name">Cozy House Plant</p>
+                <p class="product-price">$29.99</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    </script>
+
+</body>
+</html>
+          </div>
         </section>
     </div>
 </body>

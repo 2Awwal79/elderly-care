@@ -3,56 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Elderly Care</title>
+    <title>Services - Elderly Care</title>
     <link rel="stylesheet" href="./service.css">
 </head>
 <body>
-    <div class="all">
-        <!-- Navbar -->
-        <nav class="navbar">
-            <img src="asset/logo.png" alt="Logo" class="logo">
-            <div class="nav-links">
-                <a href="./index.html">Home</a>
-                <a href="./store.html">Store</a>
-                <a href="./about.html">About</a>
-                <a href="./service.html">Service</a>
-            </div>
-        </nav>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="asset/logo.png" alt="Logo" class="logo">
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./store.html">Store</a>
+            <a href="./about.html">About</a>
+            <a href="./service.html">Service</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Our Services</h1>
+        <p>Compassionate, professional care tailored to every need.</p>
     </div>
 
-    <!-- SERVICE SECTION OUR SERVICE  -->
-     <div class="serv_sect">
-        <div class="serv_img">
-            <img src="asset/p5.jpg" alt="">
+    <!-- Service Cards Grid -->
+    <section class="services_section">
+
+        <div class="service_card">
+            <div class="service_img">
+                <img src="asset/p5.jpg" alt="Residential Care">
+            </div>
+            <div class="service_info">
+                <h2>Residential Care</h2>
+                <p>Safe, comfortable living environments with round-the-clock support for seniors.</p>
+            </div>
         </div>
-        <div class="serv_img">
-            <img src="asset/p7.jpg" alt="">
+
+        <div class="service_card">
+            <div class="service_img">
+                <img src="asset/p7.jpg" alt="Health Care">
+            </div>
+            <div class="service_info">
+                <h2>Health Care</h2>
+                <p>Professional medical attention and wellness programs for elderly loved ones.</p>
+            </div>
         </div>
-        <div class="serv_img">
-            <img src="asset/p10.jpg" alt="">
+
+        <div class="service_card">
+            <div class="service_img">
+                <img src="asset/p10.jpg" alt="Long Term Care">
+            </div>
+            <div class="service_info">
+                <h2>Long Term Care</h2>
+                <p>Ongoing support plans designed to grow with your family's changing needs.</p>
+            </div>
+        </div>
+
+        <div class="service_card">
+            <div class="service_img">
+                <img src="asset/p9.jpg" alt="Home Health Care">
+            </div>
+            <div class="service_info">
+                <h2>Home Health Care</h2>
+                <p>Bringing quality care directly to the comfort of your home.</p>
+            </div>
+        </div>
+
+        <div class="service_card">
+            <div class="service_img">
+                <img src="asset/p6.jpg" alt="Special Care">
+            </div>
+            <div class="service_info">
+                <h2>Special Care</h2>
+                <p>Specialized programs for seniors with unique medical or cognitive needs.</p>
+            </div>
+        </div>
+
+        <div class="service_card">
+            <div class="service_img">
+                <img src="asset/p8.jpg" alt="Intensive Care">
+            </div>
+            <div class="service_info">
+                <h2>Intensive Care</h2>
+                <p>High-level medical support for seniors requiring close, attentive supervision.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Expert Nurse CTA -->
+    <div class="expert_nurse">
+        <img src="asset/p8.jpg" alt="Expert Nurse">
+        <div class="expert_header">
+            <h2>Need an expert nurse?</h2>
+            <p>We provide exceptional, compassionate care to your loved ones.</p>
+            <button>Contact Us</button>
         </div>
     </div>
-       <div class="serv_sect">
-        <div class="serv_img">
-            <img src="asset/p9.jpg" alt="">
-        </div>
-        <div class="serv_img">
-            <img src="asset/p6.jpg" alt="">
-        </div>
-        <div class="serv_img">
-            <img src="asset/p8.jpg" alt="">
-        </div>
-     </div>
-     </div>
-      <!-- FOOTER PAGE -->
- <!-- NEED AN EXPERT NURSE -->
-      <div class="Expert_nurse">
-        <img src="asset/p8.jpg" alt="" style="width: 20vw; height: 30vh;">
-        <div class="Expert_header">
-        <h2>Need an expert nurse?</h2>
-        <p>We provide exceptional, compassion care to your darlings.</p>
-        <button style="width: 10vw; height: 5vh; border-radius: 7px; border: none; margin-left: 350px; gap: 40px; margin: 20px;">Contact us</button>
-        </div>
-      </div>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    </script>
+
 </body>
 </html>
