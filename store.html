@@ -6,6 +6,7 @@
     <title>Elderly Care Shop</title>
     <link rel="stylesheet" href="./store.css">
 </head>
+<body>
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -17,7 +18,29 @@
             <a href="./about.html">About</a>
             <a href="./service.html">Service</a>
         </div>
+        <button class="cart-toggle" id="cartToggle" aria-label="View cart">
+            🛒 <span class="cart-count" id="cartCount">0</span>
+        </button>
     </nav>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty" id="cartEmpty">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Checkout via WhatsApp</button>
+        </div>
+    </aside>
 
     <!-- Shop Section -->
     <section class="shoping">
@@ -25,42 +48,53 @@
 
         <div class="products-grid">
             <!-- Product 1 -->
-            <div class="product-card animate-bounce-in" style="animation-delay: 0.2s;">
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.2s;"
+                 data-id="cane" data-name="Premium Walking Cane" data-price="49.99">
                 <div class="product-image">
                     <img src="asset/cane_for_working.jpg" alt="Walking Cane">
                 </div>
                 <p class="product-name">Premium Walking Cane</p>
                 <p class="product-price">$49.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
             </div>
 
             <!-- Product 2 -->
-            <div class="product-card animate-bounce-in" style="animation-delay: 0.4s;">
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.4s;"
+                 data-id="chess" data-name="Classic Chess Set" data-price="34.99">
                 <div class="product-image">
                     <img src="asset/chess shop.jpg" alt="Chess Set">
                 </div>
                 <p class="product-name">Classic Chess Set</p>
                 <p class="product-price">$34.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
             </div>
 
             <!-- Product 3 -->
-            <div class="product-card animate-bounce-in" style="animation-delay: 0.6s;">
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.6s;"
+                 data-id="plant-green" data-name="Air-Purifying Plant" data-price="24.99">
                 <div class="product-image">
                     <img src="asset/Green plant.jpg" alt="Green Plant">
                 </div>
                 <p class="product-name">Air-Purifying Plant</p>
                 <p class="product-price">$24.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
             </div>
 
             <!-- Product 4 -->
-            <div class="product-card animate-bounce-in" style="animation-delay: 0.8s;">
+            <div class="product-card animate-bounce-in" style="animation-delay: 0.8s;"
+                 data-id="plant-house" data-name="Cozy House Plant" data-price="29.99">
                 <div class="product-image">
                     <img src="asset/House_plant.jpg" alt="House Plant">
                 </div>
                 <p class="product-name">Cozy House Plant</p>
                 <p class="product-price">$29.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
     </section>
+
+    <!-- Toast -->
+    <div class="cart-toast" id="cartToast">Added to cart</div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -99,10 +133,10 @@
             <div class="footer-col">
                 <h3>Get In Touch</h3>
                 <ul class="footer-contact">
-                    <li> 123 Adeola Odeku Street, Lagos</li>
-                    <li> +234 800 000 0000</li>
-                    <li> hello@elderlycare.com</li>
-                    <li> Mon - Sat: 8am - 6pm</li>
+                    <li>123 Adeola Odeku Street, Lagos</li>
+                    <li>+234 800 000 0000</li>
+                    <li>hello@elderlycare.com</li>
+                    <li>Mon - Sat: 8am - 6pm</li>
                 </ul>
             </div>
         </div>
@@ -122,13 +156,151 @@
         const toggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+        // ===== CART LOGIC =====
+        const CART_KEY = 'elderlycare_cart';
+        const WHATSAPP_NUMBER = '2348000000000'; // replace with your real WhatsApp number
+
+        function getCart() {
+            try {
+                return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+            } catch {
+                return [];
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        function addToCart(id, name, price) {
+            const cart = getCart();
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id, name, price, qty: 1 });
+            }
+            saveCart(cart);
+            renderCart();
+            showToast(`${name} added to cart`);
+        }
+
+        function updateQty(id, delta) {
+            const cart = getCart();
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                saveCart(cart.filter(i => i.id !== id));
+            } else {
+                saveCart(cart);
+            }
+            renderCart();
+        }
+
+        function removeItem(id) {
+            saveCart(getCart().filter(i => i.id !== id));
+            renderCart();
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const cartItems = document.getElementById('cartItems');
+            const cartEmpty = document.getElementById('cartEmpty');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
+            cartCount.textContent = totalQty;
+            cartCount.style.display = totalQty > 0 ? 'inline-flex' : 'none';
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '';
+                cartEmpty.style.display = 'block';
+                cartTotal.textContent = '$0.00';
+                return;
+            }
+
+            cartEmpty.style.display = 'none';
+            let total = 0;
+            cartItems.innerHTML = cart.map(item => {
+                const lineTotal = item.price * item.qty;
+                total += lineTotal;
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <p class="cart-item-name">${item.name}</p>
+                            <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="qty-btn" onclick="updateQty('${item.id}', -1)">−</button>
+                            <span class="qty-value">${item.qty}</span>
+                            <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+                            <button class="remove-btn" onclick="removeItem('${item.id}')" aria-label="Remove">🗑</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('cartToast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(showToast._t);
+            showToast._t = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        // Add to cart buttons
+        document.querySelectorAll('.product-card').forEach(card => {
+            const btn = card.querySelector('.add-to-cart-btn');
+            btn.addEventListener('click', () => {
+                addToCart(
+                    card.dataset.id,
+                    card.dataset.name,
+                    parseFloat(card.dataset.price)
+                );
+            });
+        });
+
+        // Cart drawer open/close
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        document.getElementById('cartToggle').addEventListener('click', () => {
+            cartDrawer.classList.add('open');
+            cartOverlay.classList.add('open');
+        });
+        function closeCart() {
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
+        document.getElementById('cartClose').addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+
+        // Checkout via WhatsApp
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            const cart = getCart();
+            if (cart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            let message = "Hello! I'd like to order:%0A";
+            let total = 0;
+            cart.forEach(item => {
+                const lineTotal = item.price * item.qty;
+                total += lineTotal;
+                message += `- ${item.name} x${item.qty} ($${lineTotal.toFixed(2)})%0A`;
+            });
+            message += `%0ATotal: $${total.toFixed(2)}`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        });
+
+        // Init
+        renderCart();
     </script>
 
-
-</body>
-</html>
-          </div>
-        </section>
-    </div>
 </body>
 </html>

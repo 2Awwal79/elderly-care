@@ -194,6 +194,256 @@ img {
     color: #ccc;
     padding: 70px 60px 0;
 }
+/* =====================
+   Cart Toggle Button
+===================== */
+.cart-toggle {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ff6f00;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+/* =====================
+   Add to Cart Button
+===================== */
+.add-to-cart-btn {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 0 16px 20px;
+    padding: 10px 0;
+    background: #ff6f00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background: #e56300;
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+/* =====================
+   Cart Drawer
+===================== */
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1998;
+}
+
+.cart-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 380px;
+    max-width: 90vw;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.2);
+    z-index: 1999;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.35s ease;
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-header h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.cart-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+}
+
+.cart-empty {
+    color: #999;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 10px;
+}
+
+.cart-item-name {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.cart-item-price {
+    font-size: 13px;
+    color: #ff6f00;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.qty-btn {
+    width: 26px;
+    height: 26px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+}
+
+.qty-btn:hover {
+    background: #ff6f00;
+    color: #fff;
+    border-color: #ff6f00;
+}
+
+.qty-value {
+    min-width: 18px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    opacity: 0.6;
+}
+
+.remove-btn:hover {
+    opacity: 1;
+}
+
+.cart-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #eee;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #1ebe5b;
+}
+
+/* =====================
+   Toast
+===================== */
+.cart-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2000;
+}
+
+.cart-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* @media (max-width: 480px) {
+    .cart-drawer { width: 100%; max-width: 100vw; }
+} */
 
 .footer-top {
     display: flex;
