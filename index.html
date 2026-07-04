@@ -26,25 +26,25 @@
     </div>
 
     <!-- Illustration Categories -->
+    <!-- Illustration Categories -->
     <section class="category">
         <div class="illustration">
             <img src="./ico1.png" alt="Icon 1" class="sorce">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut amet tenetur obcaecati distinctio repellendus?</p>
+            <p>Compassionate caregivers matched to your family's specific needs, available whenever you need them.</p>
         </div>
         <div class="illustration">
             <img src="asset/ico2.png" alt="Icon 2" class="sorce">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, qui eligendi velit beatae mollitia eius?</p>
+            <p>Licensed and background-checked professionals with years of hands-on elderly care experience.</p>
         </div>
         <div class="illustration">
             <img src="asset/ico3.png" alt="Icon 3" class="sorce">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, qui eligendi velit beatae mollitia eius?</p>
+            <p>Personalized care plans that adapt as your loved one's needs change over time.</p>
         </div>
         <div class="illustration">
             <img src="asset/ico4.png" alt="Icon 4" class="sorce">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, qui eligendi velit beatae mollitia eius?</p>
+            <p>24/7 support and emergency response, giving your family peace of mind around the clock.</p>
         </div>
     </section>
-
     <!-- Expert Section -->
     <section class="expert">
         <img src="asset/icon11.png" alt="Expert Icon">
@@ -129,17 +129,63 @@
     </section>
 
     <!-- Expert Nurse CTA -->
-    <div class="expert_nurse">
-        <img src="asset/p8.jpg" alt="Expert Nurse">
-        <div class="expert_header">
-            <h2>Need an expert nurse?</h2>
-            <p>We provide exceptional, compassionate care to your loved ones.</p>
-            <button>Contact Us</button>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-col footer-brand">
+                <img src="asset/logo.png" alt="Logo" class="footer-logo">
+                <p>Compassionate, professional elderly care that protects dignity and brings peace of mind to families.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                    <a href="#" aria-label="Instagram">i</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./store.html">Store</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./service.html">Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">Health Care</a></li>
+                    <li><a href="#">Resident Care</a></li>
+                    <li><a href="#">Transportation</a></li>
+                    <li><a href="#">Hospice Care</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Get In Touch</h3>
+                <ul class="footer-contact">
+                    <li> 123 Adeola Odeku Street, Lagos</li>
+                    <li> +234 800 000 0000</li>
+                    <li> hello@elderlycare.com</li>
+                    <li> Mon - Sat: 8am - 6pm</li>
+                </ul>
+            </div>
         </div>
-    </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Elderly Care. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Mobile menu toggle
+        document.getElementById('year').textContent = new Date().getFullYear();
         const toggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -147,3 +193,5 @@
 
 </body>
 </html>
+git commit -m "update"
+git push origin main
